@@ -1,0 +1,65 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-6">
+    <div id="form-wrapper" class="box-element">
+      <form id="form">
+        <div id="user-info">
+          <div class="form-field">
+            <input type="text" class="form-control" name="name" placeholder="Name">
+          </div>
+          <div class="form-field">
+            <input type="text" class="form-control" name="email" placeholder="Email">
+          </div>
+        </div>
+        <div id="shipping-info">
+          <hr>
+          <p>Shipping Information</p>
+          <hr>
+          <div class="form-field">
+            <input type="text" class="form-control" name="adress" placeholder="Address">
+          </div>
+          <div class="form-field">
+            <input type="text" class="form-control" name="city" placeholder="City">
+          </div>
+          <div class="form-field">
+            <input type="text" class="form-control" name="state" placeholder="State">
+          </div>
+          <div class="form-field">
+            <input type="text" class="form-control" name="zipcode" placeholder="Zip code">
+          </div>
+          <div class="form-field">
+            <input type="text" class="form-control" name="country" placeholder="Country">
+          </div>
+        </div>
+        <hr>
+        <input id="form-button" type="submit" class="btn btn-success btn-block" value="Continue">
+      </form>
+    </div>
+    <br>
+    <div id="payment-info" class="box-element hidden">
+      <small>Paypal Options</small>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="box-element">
+      <a href="{% url 'cart' %}" class="btn btn-outline-dark">Back to Cart</a>
+      <hr>
+      <h3>Order Summary</h3>
+      <hr>
+      <div class="cart-row">
+        <div style="flex:2"><img src="{% static 'images/placeholder.png' %}" class="row-image"></div>
+        <div style="flex:2"><p>Product 1</p></div>
+        <div style="flex:1"><p>20₺</p></div>
+        <div style="flex:1"><p>x2</p></div>
+      </div>
+      <hr>
+      <h5>Items:    2</h5>
+      <h5>Total:    40₺</h5>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
