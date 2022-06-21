@@ -14,7 +14,7 @@ def store(request):
     cartItems = order.get_cart_items
   else:
     # create empty cart for now for unauthenticated users
-    order = {'get_cart_total': 0, 'get_cart_items': 0}
+    order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
     items = []
     cartItems = order['get_cart_items']
 
@@ -31,7 +31,7 @@ def cart(request):
     cartItems = order.get_cart_items
   else:
     # create empty cart for now for unauthenticated users
-    order = {'get_cart_total': 0, 'get_cart_items': 0}
+    order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
     items = []
     cartItems = order['get_cart_items']
 
@@ -47,7 +47,7 @@ def checkout(request):
     cartItems = order.get_cart_items
   else:
     # create empty cart for now for unauthenticated users
-    order = {'get_cart_total': 0, 'get_cart_items': 0}
+    order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
     items = []
     cartItems = order['get_cart_items']
 
