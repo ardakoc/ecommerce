@@ -19,7 +19,7 @@
           <p>Shipping Information</p>
           <hr>
           <div class="form-field">
-            <input type="text" class="form-control" name="adress" placeholder="Address">
+            <input type="text" class="form-control" name="address" placeholder="Address">
           </div>
           <div class="form-field">
             <input type="text" class="form-control" name="city" placeholder="City">
@@ -108,6 +108,7 @@
       'city': null,
       'state': null,
       'zipcode': null,
+      'country': null,
     }
 
     if (shipping != 'False') {
@@ -115,12 +116,30 @@
       shippingInfo.city = form.city.value
       shippingInfo.state = form.state.value
       shippingInfo.zipcode = form.zipcode.value
+      shippingInfo.country = form.country.value
     }
 
     if (user == 'AnonymousUser') {
       userFormData.name = form.name.value
       userFormData.email = form.email.value
     }
+
+    var url = '/process_order/'
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken,
+      },
+      body: JSON.stringify({'form': userFormData, 'shipping': shippingInfo}),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Success:', data)
+      alert('Transaction completed')
+      window.location.href = '{% url "store" %}'
+    })
   }
 </script>
 
