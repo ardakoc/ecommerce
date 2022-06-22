@@ -67,7 +67,7 @@
 
 <script type="text/javascript">
   var shipping = '{{ order.shipping }}'
-  var total = '{{ order.get_cart_total|floatformat:2 }}'
+  var total = '{{ order.get_cart_total }}'
 
   if (shipping == 'False') {
     document.getElementById('shipping-info').innerHTML = ''
@@ -108,7 +108,6 @@
       'city': null,
       'state': null,
       'zipcode': null,
-      'country': null,
     }
 
     if (shipping != 'False') {
@@ -116,7 +115,6 @@
       shippingInfo.city = form.city.value
       shippingInfo.state = form.state.value
       shippingInfo.zipcode = form.zipcode.value
-      shippingInfo.country = form.country.value
     }
 
     if (user == 'AnonymousUser') {
